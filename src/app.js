@@ -1,8 +1,8 @@
-"use strict"
-
 import React from 'react';
 import {render} from 'react-dom'
 import {Provider} from 'react-redux';
+import SideBar from './components/sideBar';
+import MusicPlayer from './components/musicPlayer';
 
 import {applyMiddleware, createStore} from 'redux';
 
@@ -26,6 +26,8 @@ export const routes = (
         <Router history={customHistory}>
             <div>
                 <Route exact path="/" component={AlbumList}/>
+                <Route exact path="/albums" component={SideBar}/>
+                <Route exact path="/player" component={MusicPlayer}/>
             </div>
         </Router>
     </Provider>

@@ -1,5 +1,3 @@
-"use strict"
-
 // define reducers
 export function albumReducers(state={ albums: []
 }, action){
