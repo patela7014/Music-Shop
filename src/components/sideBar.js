@@ -1,41 +1,40 @@
-    import React from 'react';
-    import {connect} from 'react-redux';
-    import { Dashboard, Header, Sidebar } from 'react-adminlte-dash';
+import React from 'react';
+import {Nav, NavItem, Navbar, Badge} from 'react-bootstrap';
+import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap';
 
-    class SideBar extends React.Component {
-        componentDidMount() {
+// import { Dashboard, Header, Sidebar } from 'react-adminlte-dash';
+class SideBar extends React.Component {
+    componentDidMount() {
 
-        }
+    }
 
     render() {
-        const nav = () => ([
-            <Header.Item href="/some/link" key="1" />
-        ]);
-
-        const sb = () => ([
-            <Sidebar.Menu header="NAVIGATION" key="1">
-                <Sidebar.Menu.Item title="Home" href="/" />
-            </Sidebar.Menu>
-        ]);
-
-        const App = ({ children }) => (
-            <Dashboard
-                navbarChildren={nav()}
-                sidebarChildren={sb()}
-                theme="skin-blue"
-            >
-                {children}
-            </Dashboard>
-        );
         return(
-            <App/>
+            <Navbar inverse fixedTop>
+                <Navbar.Header>
+                    <LinkContainer to="/">
+                        <Navbar.Brand>
+                            Music Shop
+                        </Navbar.Brand>
+                    </LinkContainer>
+                    <Navbar.Toggle />
+                </Navbar.Header>
+                <Navbar.Collapse>
+                    <Nav pullRight>
+                        <IndexLinkContainer to="/" activeClassName="active">
+                            <NavItem eventKey={1}>Home</NavItem>
+                        </IndexLinkContainer>
+                        <IndexLinkContainer to="/albums" activeClassName="active">
+                            <NavItem  eventKey={2}>
+                                Albums
+                            </NavItem>
+                        </IndexLinkContainer>
+
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
         )
-     };
-    }
-    
-    function mapStateToProps(state) {
-        return{
-            albums: state.albums.albums
-        }
-    }
-    export default connect(mapStateToProps,null)(SideBar);
+    };
+}
+
+export default SideBar;
