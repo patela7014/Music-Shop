@@ -9,8 +9,8 @@ import {applyMiddleware, createStore} from 'redux';
 import reducers from './reducers/index';
 
 import logger from 'redux-logger';
-
-const middleware = applyMiddleware(logger);
+import thunk from 'redux-thunk';
+const middleware = applyMiddleware(thunk, logger);
 
 // create the store
 const store = createStore(reducers, middleware);

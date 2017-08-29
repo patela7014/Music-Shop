@@ -3,13 +3,24 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Panel, Grid, Col, Row, Button} from 'react-bootstrap';
 import Album from './album';
+import axios from 'axios';
+// import {tracks} from '../../napster-endpoint';
+
+import {getAlbums} from '../actions/albumActions';
 class AlbumList extends React.Component{
 
     componentDidMount(){
-
+        this.props.getAlbums();
     }
     render(){
-
+        let classObj = this;
+        const albumList = this.props.albums.map(function (album) {
+            return(
+                <div className="col-xs-4 col-sm-4 col-md-3" key={album.id}>
+                    <Album {...album}/>
+                </div>
+            )
+        })
         return(
             <div id="content" className="app-content white bg box-shadow-z2" role="main">
                 <div className="app-footer app-player grey bg">
@@ -101,7 +112,7 @@ class AlbumList extends React.Component{
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <Album/>
+                                        {albumList}
                                     </div>
 
                                 </div>
@@ -243,4 +254,8 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps,null)(AlbumList);
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({getAlbums},dispatch)
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(AlbumList);
