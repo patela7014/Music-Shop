@@ -19,15 +19,22 @@ class AlbumList extends React.Component{
     }
     render(){
         let classObj = this;
-        const albumList = this.props.albums.map(function (album) {
-            return(
-            // <div className="col-xs-4 col-sm-4 col-md-3" key={album.id}>
-            //     <Album {...album}/>
-            // </div>
-            //
-                <Album {...album}/>
-            )
-        })
+        let albumList = "";
+        if(this.props.albums !== undefined){
+            albumList = this.props.albums.map(function (album) {
+                return(
+                    // <div className="col-xs-4 col-sm-4 col-md-3" key={album.id}>
+                    //     <Album {...album}/>
+                    // </div>
+                    //
+                    <div
+                        key={album.id}
+                        className="track" >
+                        <Album {...album}/>
+                    </div>
+                )
+            })
+        }
         return(
             <div>
                 <SideBar/>

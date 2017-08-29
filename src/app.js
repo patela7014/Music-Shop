@@ -28,7 +28,7 @@ export const routes = (
         <Router history={customHistory}>
             <div>
                 <Route exact path="/" component={AlbumList}/>
-                <Route exact path="/albums" component={SideBar}/>
+                <Route exact path="/albums" component={AlbumList}/>
                 <Route exact path="/player" component={MusicPlayer}/>
                 <Route exact path="/tracks" component={TrackList}/>
                 <Route exact path="/artists" component={ArtistList}/>

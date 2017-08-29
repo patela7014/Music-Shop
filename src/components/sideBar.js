@@ -24,9 +24,14 @@ class SideBar extends React.Component {
                         <IndexLinkContainer to="/" activeClassName="active">
                             <NavItem eventKey={1}>Home</NavItem>
                         </IndexLinkContainer>
-                        <IndexLinkContainer to="/albums" activeClassName="active">
+                        <IndexLinkContainer to="/artists" activeClassName="active">
                             <NavItem  eventKey={2}>
-                                Albums
+                                Artists
+                            </NavItem>
+                        </IndexLinkContainer>
+                        <IndexLinkContainer to="/tracks" activeClassName="active">
+                            <NavItem  eventKey={3}>
+                                Tracks
                             </NavItem>
                         </IndexLinkContainer>
 

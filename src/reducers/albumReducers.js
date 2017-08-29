@@ -5,15 +5,18 @@ export function albumReducers(state={ albums: [], tracks: [], artists: []}, acti
     let allAlbums = [...state.albums];
     switch (action.type){
         case 'GET_ALBUMS':
-            return {albums :[...action.payload]}
+
+            return {...state, albums:[...action.payload]}
             break;
         case 'GET_TRACKS':
-            return {tracks :[...state.tracks, ...action.payload]}
+            return {...state, tracks:[...action.payload]}
             break;
         case 'GET_ARTISTS':
-            return {artists :[...state.artists, ...action.payload]}
+            return {...state, artists:[...action.payload]}
             break;
     }
+    console.log('state',state);
+
     return state;
 };
 

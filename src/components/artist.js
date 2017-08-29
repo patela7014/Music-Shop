@@ -18,9 +18,7 @@ class Artist extends React.Component{
     render(){
         let img = "http://direct.rhapsody.com/imageserver/v2/artists/"+this.props.id+"/images/356x237.jpg";
         return(
-            <div
-                key={this.props.id}
-                className="track" >
+            <div>
                 <img
                     src={img}
                     className="track-img"
