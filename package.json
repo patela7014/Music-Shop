@@ -41,6 +41,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "sass-loader": "^6.0.6",
     "webpack": "^3.5.5"
   }
 }

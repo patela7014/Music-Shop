@@ -6,6 +6,7 @@ import Album from './album';
 import MusicPlayer from './musicPlayer';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 // import css from '../../public/styles/style.styl';
+// import '../../public/css/player.scss';
 
 import axios from 'axios';
 // import {tracks} from '../../napster-endpoint';
@@ -14,8 +15,54 @@ import SideBar from './sideBar';
 import {getAlbums} from '../actions/albumActions';
 class AlbumList extends React.Component{
 
+    constructor(){
+        super();
+
+        this.state={
+            playingUrl : '',
+            audio : null,
+            playing : false
+        };
+    }
+
     componentDidMount(){
         this.props.getAlbums();
+    }
+
+    playAudio(url){
+        let audio = new Audio(url);
+
+        console.log('playing', this.state);
+        if(!this.state.playing){
+            this.setState(
+                {
+                    playingUrl : url,
+                    audio: audio,
+                    playing: true
+                }
+            )
+            audio.play();
+        }else{
+            if(this.state.playingUrl === url){
+                this.state.audio.pause();
+                this.setState(
+                    {
+                        playing: false
+                    }
+                )
+            }else{
+                this.state.audio.pause();
+                audio.play();
+                this.setState(
+                    {
+                        playingUrl : url,
+                        audio: audio,
+                        playing: true
+                    }
+                )
+            }
+        }
+
     }
     render(){
         let classObj = this;
@@ -23,14 +70,10 @@ class AlbumList extends React.Component{
         if(this.props.albums !== undefined){
             albumList = this.props.albums.map(function (album) {
                 return(
-                    // <div className="col-xs-4 col-sm-4 col-md-3" key={album.id}>
-                    //     <Album {...album}/>
-                    // </div>
-                    //
                     <div
                         key={album.id}
-                        className="track" >
-                        <Album {...album}/>
+                        className="track" onClick={()=>{classObj.playAudio(album.previewURL)}}  >
+                        <Album playingUrl={classObj.state.playingUrl} playing={classObj.state.playing} {...album}/>
                     </div>
                 )
             })
@@ -51,7 +94,6 @@ class AlbumList extends React.Component{
                         </div>
                     </div>
                 </div>
-
             </div>
         )
     }

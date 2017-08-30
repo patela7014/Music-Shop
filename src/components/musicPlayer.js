@@ -1,113 +1,95 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-
 class MusicPlayer extends React.Component{
     componentDidMount(){
 
     }
     render(){
         return(
-
-            <div className='container'>
-
-                <div className='app'>
-
-                    <div className="app__nav js-hook--music">
-                        <div className='app__nav-hamburger'></div>
-                        <div className='app__nav-text'>Music</div>
-                        <div className='app__nav-settings reset'><i className="fa fa-repeat" aria-hidden="true"></i></div>
+            <div className="player">
+                <div className="cover"></div>
+                <nav>
+                    <div className="left">
+                        <i className="material-icons">menu</i>
+                        <h6>Playlist</h6>
                     </div>
-
-                    <div className="app__search js-hook--music">
-                        <input className='app__search-input' type="text" placeholder='Search music' />
-                        <i className="fa fa-search app__search-fa" aria-hidden="true"></i>
+                    <div className="right">
+                        <i className="material-icons search">search</i>
+                        <i className="material-icons">queue_music</i>
                     </div>
-
-                    <div className="app__song app__song--1 js-hook--music">
-                        <div className="app__song-img app__song--1-img"></div>
-                        <div className="app__song-info">
-                            <h3 className='app__song-info-name'>U Make Me Wanna</h3>
-                            <h3 className='app__song-info-artist'>Blue</h3>
-                            <p className='app__song-info-likes'><i className="fa fa-heart-o" aria-hidden="true"></i>1200</p>
-                            <p className='app__song-info-dl'><i className="fa fa-arrow-down" aria-hidden="true"></i>2000</p>
-                        </div>
-                        <div className="app__song-dl">
-                            <div className='app__song-dl-arrow'><span></span></div>
-                        </div>
-                        <div className='app__song--1-likes app__song-likes'>
-                            <div className='app__song--1-likes-pause app__song-likes-pause'></div>
-                            <div className='app__song--1-likes-like app__song-likes-like'><i className="fa fa-heart-o" aria-hidden="true"></i></div>
-                            <div className='app__song--1-likes-dl app__song-likes-dl'></div>
-                        </div>
-                        <div className='app__song-wrapper'></div>
+                </nav>
+                <div className="player-ui">
+                    <div className="title">
+                        <h3>Hello</h3>
                     </div>
-
-                    <div className="app__song app__song--2 js-hook--music">
-                        <div className="app__song-img app__song--2-img"></div>
-                        <div className="app__song-info">
-                            <h3 className='app__song-info-name'>You Are Not Alone</h3>
-                            <h3 className='app__song-info-artist'>Lobca</h3>
-                            <p className='app__song-info-likes'><i className="fa fa-heart-o" aria-hidden="true"></i>2000</p>
-                            <p className='app__song-info-dl'><i className="fa fa-arrow-down" aria-hidden="true"></i>3000</p>
-                        </div>
-                        <div className="app__song-dl">
-                            <div className='app__song-dl-arrow'><span></span></div>
-                        </div>
-                        <div className='app__song--2-likes app__song-likes'>
-                            <div className='app__song--2-likes-pause app__song-likes-pause'></div>
-                            <div className='app__song--2-likes-like app__song-likes-like'><i className="fa fa-heart-o" aria-hidden="true"></i></div>
-                            <div className='app__song--2-likes-dl app__song-likes-dl'></div>
-                        </div>
-                        <div className='app__song-wrapper'></div>
+                    <div className="small">
+                        <i className="material-icons">replay</i>
+                        <p>Adele</p>
+                        <i className="material-icons">volume_up</i>
                     </div>
-
-                    <div className="app__song app__song--3 js-hook--music">
-                        <div className="app__song-img app__song--3-img"></div>
-                        <div className="app__song-info">
-                            <h3 className='app__song-info-name'>Foll In Lover</h3>
-                            <h3 className='app__song-info-artist'>Ramzi</h3>
-                            <p className='app__song-info-likes'><i className="fa fa-heart-o" aria-hidden="true"></i>1200</p>
-                            <p className='app__song-info-dl'><i className="fa fa-arrow-down" aria-hidden="true"></i>1200</p>
+                    <div className="progress">
+                        <div className="played">
+                            <div className="circle"></div>
                         </div>
-                        <div className="app__song-dl">
-                            <div className='app__song-dl-arrow'><span></span></div>
-                        </div>
-                        <div className='app__song--3-likes app__song-likes'>
-                            <div className='app__song--3-likes-pause app__song-likes-pause'></div>
-                            <div className='app__song--3-likes-like app__song-likes-like'><i className="fa fa-heart-o" aria-hidden="true"></i></div>
-                            <div className='app__song--3-likes-dl app__song-likes-dl'></div>
-                        </div>
-                        <div className='app__song-wrapper'></div>
                     </div>
-
-                    <div className="app__song app__song--4 js-hook--music">
-
-                        <div className="app__song-img app__song--4-img"></div>
-                        <div className="app__song-info">
-                            <h3 className='app__song-info-name'>One For Da Money</h3>
-                            <h3 className='app__song-info-artist'>Album</h3>
-                            <p className='app__song-info-likes'><i className="fa fa-heart-o" aria-hidden="true"></i>1300</p>
-                            <p className='app__song-info-dl'><i className="fa fa-arrow-down" aria-hidden="true"></i>2000</p>
-                        </div>
-                        <div className="app__song-dl">
-                            <div className='app__song-dl-arrow'><span></span></div>
-                        </div>
-                        <div className='app__song--4-likes app__song-likes'>
-                            <div className='app__song--4-likes-pause app__song-likes-pause'></div>
-                            <div className='app__song--4-likes-like app__song-likes-like'><i className="fa fa-heart-o" aria-hidden="true"></i></div>
-                            <div className='app__song--4-likes-dl app__song-likes-dl'></div>
-                        </div>
-                        <div className='app__song-wrapper'></div>
+                    <div className="controls">
+                        <i className="material-icons">skip_previous</i>
+                        <i className="material-icons">play_arrow</i>
+                        <i className="material-icons">skip_next</i>
                     </div>
-
-                    <div className='app__cross js-hook--1menu'></div>
-                    <div className='app__play js-hook--1menu'>
-                        <div className='app__play-btn'></div>
-                        <p className='app__play-par'>Play song in the bar</p>
+                </div>
+                <div className="btn">
+                </div>
+                <div className="music">
+                    <div className="song-1">
+                        <div className="info">
+                            <div className="img first"></div>
+                            <div className="titles">
+                                <h5>Hello</h5>
+                                <p>Adele</p>
+                            </div>
+                        </div>
+                        <div className="state playing">
+                            <i className="material-icons">equalizer</i>
+                        </div>
                     </div>
-
-                    <div className='app__bg'></div>
+                    <div className="song-2">
+                        <div className="info">
+                            <div className="img second"></div>
+                            <div className="titles">
+                                <h5>Californication</h5>
+                                <p>Red Hot Chili Pepers</p>
+                            </div>
+                        </div>
+                        <div className="state">
+                            <i className="material-icons">play_arrow</i>
+                        </div>
+                    </div>
+                    <div className="song-3">
+                        <div className="info">
+                            <div className="img third"></div>
+                            <div className="titles">
+                                <h5>6 INCH</h5>
+                                <p>beyoncé</p>
+                            </div>
+                        </div>
+                        <div className="state">
+                            <i className="material-icons">play_arrow</i>
+                        </div>
+                    </div>
+                    <div className="song-4">
+                        <div className="info">
+                            <div className="img fourth"></div>
+                            <div className="titles">
+                                <h5>Purple rain</h5>
+                                <p>Prince & The Revolution</p>
+                            </div>
+                        </div>
+                        <div className="state">
+                            <i className="material-icons">play_arrow</i>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
