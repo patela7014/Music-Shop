@@ -4,7 +4,6 @@ import {bindActionCreators} from 'redux';
 import {Panel, Grid, Col, Row, Button} from 'react-bootstrap';
 import Artist from './artist';
 import axios from 'axios';
-// import {tracks} from '../../napster-endpoint';
 import SideBar from './sideBar';
 
 import {getArtists} from '../actions/artistAction';
@@ -17,6 +16,7 @@ class ArtistList extends React.Component{
         let classObj = this;
         const artistList = this.props.artists.map(function (artist) {
             return(
+
                 <div
                     key={artist.id}
                     className="track" >

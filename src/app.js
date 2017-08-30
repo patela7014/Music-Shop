@@ -23,6 +23,7 @@ const customHistory = createBrowserHistory()
 
 import AlbumList from './components/albumList';
 import ArtistList from './components/artistList';
+import ArtistDetail from "./components/artistDetail";
 export const routes = (
     <Provider store={store}>
         <Router history={customHistory}>
@@ -32,6 +33,7 @@ export const routes = (
                 <Route exact path="/player" component={MusicPlayer}/>
                 <Route exact path="/tracks" component={TrackList}/>
                 <Route exact path="/artists" component={ArtistList}/>
+                <Route exact path="/artist/:artistId" component={ArtistDetail}/>
 
             </div>
         </Router>

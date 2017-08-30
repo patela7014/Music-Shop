@@ -31,7 +31,6 @@ class AlbumList extends React.Component{
 
     playAudio(url){
         let audio = new Audio(url);
-
         console.log('playing', this.state);
         if(!this.state.playing){
             this.setState(
